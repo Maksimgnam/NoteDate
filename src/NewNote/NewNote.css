@@ -1,0 +1,171 @@
+.NewNote {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+
+
+}
+
+.NewNoteContainer {
+    width: 93%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NewNotePaper {
+    width: 60%;
+    height: 97%;
+    background-color: white;
+    resize: none;
+    border-radius: 10px;
+    font-size: 23px;
+    padding: 10px;
+}
+
+
+.NewNoteMenu {
+    width: 7%;
+    height: 100%;
+    background-color: #282c34;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.NewNoteLIne {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+}
+
+.NewNoteMenuContainer {
+    width: 100%;
+    height: 89%;
+    background-color: #282c34;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.NewNoteMenuContainer p {
+    color: white;
+    font-size: 19px;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+    top: -7px;
+}
+
+
+.NewNoteMenuSaveContainer {
+    width: 100%;
+    height: 10%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NewNoteMenuSaveBtn {
+    width: 80%;
+    height: 50px;
+    background-color: #404756;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.NewNoteMenuColorChange {
+    width: 70px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    position: relative;
+    top: -7px;
+}
+
+.NewNoteMenuColorChangeWhiteBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    border: 1px solid black;
+
+
+}
+
+.NewNoteMenuColorChangeBlackBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: black;
+    border: 1px solid black;
+
+
+}
+
+.BlackBtn {
+
+    position: relative;
+    left: 17px;
+    margin: 10px;
+}
+
+
+.NewNoteMenuColorChangeRedBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: red;
+    border: 1px solid black;
+    position: relative;
+    left: 17px;
+    margin: 10px;
+
+
+
+
+}
+
+.WhiteBtn {
+
+    position: relative;
+    left: 17px;
+    margin: 10px;
+}
+
+.NewNoteMenuColorChangeBlueBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: blue;
+    border: 1px solid black;
+    position: relative;
+    left: 17px;
+    margin: 10px;
+
+}
+
+.NewNoteMenuTextChange {
+
+    height: 170px;
+    overflow-y: scroll;
+
+}
