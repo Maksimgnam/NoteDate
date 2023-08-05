@@ -1,11 +1,12 @@
 
 
+import Search from '../Search/Search';
 import './History.css';
 
 const History = () => {
     return (
         <div className="Container">
-            <p>History</p>
+            <Search />
 
         </div>
     )

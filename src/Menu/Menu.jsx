@@ -3,21 +3,25 @@ import './Menu.css';
 
 const Menu = ({ NewNoteOpen, NotesOpen, HistoryOpen, NoticeOpen, SettingsOpen }) => {
     const date = new Date();
-    const dateYear = date.getFullYear()
+    const dateYear = date.getFullYear();
+    const image = localStorage.getItem('image');
+    const name = localStorage.getItem('name');
+    const aim = localStorage.getItem('aim');
+    const email = localStorage.getItem('email')
 
     return (
         <div className="Menu">
             <Logo />
             <div className="MenuAccountContainer">
                 <div className="MenuAccountImageContainer">
-                    <div className="MenuAccountImage">
+                    <img src={image} className="MenuAccountImage" />
 
-                    </div>
-                    <p className='MenuAccountText'>Maksim Gnap</p>
+
+                    <p className='MenuAccountText'>{name}</p>
 
                 </div>
-                <p className='MenuAccountStudent'>Student</p>
-                <p className='MenuAccountEmail'>Example345@gmail.com</p>
+                <p className='MenuAccountStudent'>{aim}</p>
+                <p className='MenuAccountEmail'>{email}</p>
 
 
 

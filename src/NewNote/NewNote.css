@@ -34,6 +34,22 @@
 
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+.NewNoteMenuAddImageBtn {
+    width: 50px;
+    height: 50px;
+    background-color: #404756;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 24px;
+    position: relative;
+    top: -8px;
+
+
 }
 
 .NewNoteLIne {
@@ -46,16 +62,14 @@
     width: 100%;
     height: 89%;
     background-color: #282c34;
-    display: flex;
-
-    flex-direction: column;
-    align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 
 .NewNoteMenuContainer p {
     color: white;
-    font-size: 19px;
+    font-size: 17px;
     font-weight: 600;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     position: relative;
@@ -87,13 +101,14 @@
 }
 
 .NewNoteMenuColorChange {
-    width: 70px;
+    width: 100%;
     height: 120px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
     position: relative;
+    overflow-x: hidden;
     top: -7px;
 }
 
@@ -104,6 +119,8 @@
     border: none;
     background-color: white;
     border: 1px solid black;
+    position: relative;
+
 
 
 }
@@ -119,53 +136,145 @@
 
 }
 
+.NewNoteMenuTextColorChangeBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+
+    border: 1px solid black;
+    margin: 6px;
+    position: relative;
+    top: -7px;
+    position: relative;
+    left: 4px;
+
+}
+
 .BlackBtn {
-
-    position: relative;
-    left: 17px;
-    margin: 10px;
+    background-color: black;
 }
 
-
-.NewNoteMenuColorChangeRedBtn {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
+.RedBtn {
     background-color: red;
-    border: 1px solid black;
-    position: relative;
-    left: 17px;
-    margin: 10px;
-
-
-
-
 }
 
-.WhiteBtn {
-
-    position: relative;
-    left: 17px;
-    margin: 10px;
+.GoldBtn {
+    background-color: gold;
 }
 
-.NewNoteMenuColorChangeBlueBtn {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
+.BlueBtn {
     background-color: blue;
-    border: 1px solid black;
-    position: relative;
-    left: 17px;
-    margin: 10px;
+}
+
+.LightBlueBtn {
+    background-color: lightblue;
+}
+
+.LightYellowBtn {
+    background-color: yellowgreen;
+}
+
+.YellowBtn {
+    background-color: yellow;
 
 }
+
+.PurpleBtn {
+    background-color: purple;
+}
+
+.PinkBtn {
+    background-color: pink;
+}
+
+.GreenBtn {
+    background-color: green;
+}
+
+.LightGreenBtn {
+    background-color: lightgreen;
+}
+
+
+
+
+
+
 
 .NewNoteMenuTextChange {
-
-    height: 170px;
+    height: 240px;
     overflow-y: scroll;
+    position: relative;
+    top: -7px;
+
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Target the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+
+    border-radius: 6px;
+}
+
+/* Target the scrollbar thumb when the user hovers over it */
+
+
+.NewNoteMenuTextSizeChange {
+    width: 100%;
+    height: 180px;
+    position: relative;
+    left: 8px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+    top: -7px;
+
+}
+
+.NewNoteMenuTexSizeChangeBtn {
+    width: 98%;
+    height: 40px;
+    margin: 10px;
+    position: relative;
+    left: -16px;
+    top: -12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.NewNoteMenuTextTypeChange {
+    width: 100%;
+    height: 80px;
+
+    position: relative;
+    top: -5px;
+
+
+
+}
+
+.NewNoteMenuTextTypeChangeBtn {
+    width: 100px;
+    height: 30px;
+    background-color: #282c34;
+    margin: 15px;
+    z-index: 1000;
+    border-radius: 10px;
+    border: 1px solid #282c34;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    left: -12px;
+    top: -5px;
+
 
 }

@@ -6,14 +6,21 @@ import Settings from '../Settings/Settings';
 import './Main.css';
 import { useState } from 'react';
 import NewNote from '../NewNote/NewNote';
+import Registration from '../Registration/Registration';
+
+
 const Main = () => {
-    const [menuOpen, setMenuOpen] = useState(true);
-    const [openMainContainer, setOpenMainContainer] = useState(true)
+
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [openMainContainer, setOpenMainContainer] = useState(false);
+    const [openRegistration, setOpenRegistration] = useState(true)
     const [newNotes, setNewNotes] = useState(false);
-    const [notes, setNotes] = useState(true);
+    const [notes, setNotes] = useState(false);
     const [history, setHistory] = useState(false);
     const [notice, setNotice] = useState(false);
     const [settings, setSettings] = useState(false);
+
+
 
 
     const NewNoteOpen = () => {
@@ -53,12 +60,19 @@ const Main = () => {
 
     }
 
+    const RegistrationClose = () => {
+        setOpenRegistration(false);
+        setMenuOpen(true);
+        setOpenMainContainer(true);
+    }
+
 
 
 
 
     return (
         <div className="Main">
+
             {
                 menuOpen && (
                     <Menu NewNoteOpen={NewNoteOpen} NotesOpen={NotesOpen} HistoryOpen={HistoryOpen} NoticeOpen={NoticeOpen} SettingsOpen={SettingsOpen} />
@@ -68,6 +82,7 @@ const Main = () => {
 
             {
                 openMainContainer && (
+
                     <div className="MainContainer">
                         {
                             notes && (
@@ -102,12 +117,22 @@ const Main = () => {
                 )
             }
 
+
+
             {
                 newNotes && (
                     <NewNote />
 
                 )
             }
+            {
+                openRegistration && (
+
+                    <Registration RegistrationClose={RegistrationClose} />
+
+                )
+            }
+
 
 
 

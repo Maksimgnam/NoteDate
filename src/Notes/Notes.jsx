@@ -1,11 +1,16 @@
 
 
+import { useState } from 'react';
 import './Notes.css';
+import Search from '../Search/Search';
 
 const Notes = () => {
+
     return (
         <div className="Container">
-            <p>Notes</p>
+            <Search />
+
+
 
         </div>
     )
