@@ -2,12 +2,23 @@
     width: 100%;
     height: 100vh;
     /* background-color: #282c34; */
-    background-color: #404756;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.MainComponetContainer {
+    width: 100%;
+    height: 90%;
+
     display: flex;
     justify-content: space-around;
 }
 
+
+
 .MainContainer {
     width: 80%;
     height: 100%;
+
 }

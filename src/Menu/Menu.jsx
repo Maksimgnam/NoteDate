@@ -1,9 +1,8 @@
-import Logo from '../Logo/Logo';
+
 import './Menu.css';
 
-const Menu = ({ NewNoteOpen, NotesOpen, HistoryOpen, NoticeOpen, SettingsOpen }) => {
-    const date = new Date();
-    const dateYear = date.getFullYear();
+const Menu = ({ ProjectsOpen, HistoryOpen, NoticeOpen, HomeOpen, TrashOpen }) => {
+
     const image = localStorage.getItem('image');
     const name = localStorage.getItem('name');
     const aim = localStorage.getItem('aim');
@@ -11,47 +10,62 @@ const Menu = ({ NewNoteOpen, NotesOpen, HistoryOpen, NoticeOpen, SettingsOpen })
 
     return (
         <div className="Menu">
-            <Logo />
-            <div className="MenuAccountContainer">
-                <div className="MenuAccountImageContainer">
-                    <img src={image} className="MenuAccountImage" />
 
-
-                    <p className='MenuAccountText'>{name}</p>
-
-                </div>
-                <p className='MenuAccountStudent'>{aim}</p>
-                <p className='MenuAccountEmail'>{email}</p>
-
-
-
-            </div>
 
             <div className="MenuBarContainer">
-                <p className='MenuBarText'>Menu</p>
-                <button className='MenuBarBtn' onClick={NewNoteOpen}>New note</button>
+                <div className="MenuBarImageContainer">
+                    <img src={image} alt="" className='MenuBarImage' />
+                    <div className="MenuBarTextContainer">
+                        <div className='MenuBarName'>{name}</div>
+
+                        <div className='MenuBarText'>{email}</div>
+
+                    </div>
+
+
+
+                </div>
+                <div className="MenuBarAimContainer">
+                    <p>      {aim}</p>
+
+                    <img src="https://cdn.icon-icons.com/icons2/2468/PNG/512/user_icon_149329.png" alt="" />
+
+                </div>
+
                 <div className="MenuBarCardContainer">
 
-                    <div className="MenuBarCard" onClick={NotesOpen} >
-                        <img src="https://icon-library.com/images/video-icon-white/video-icon-white-18.jpg" alt="" className='MenuBarCardImage' />
-                        <p>Notes</p></div>
+                    <div className="MenuBarCard" onClick={HomeOpen} >
+                        <img src="https://icon-library.com/images/home-icon-png-transparent/home-icon-png-transparent-15.jpg" alt="" className='MenuBarCardImage HomeImage' />
+                        <p className='MenuBarCardText HomeText'>Home</p></div>
+
+                    <div className="MenuBarCard" onClick={ProjectsOpen} >
+                        <img src="https://d1k5j68ob7clqb.cloudfront.net/processed/thumb/42mCH48I6l1R0bpSgl.png" alt="" className='MenuBarCardImage ' />
+                        <p className='MenuBarCardText'>Projects</p></div>
                     <div className="MenuBarCard" onClick={HistoryOpen}>
-                        <img src="https://cdn-icons-png.flaticon.com/512/2961/2961948.png" alt="" className='MenuBarCardImage' />
-                        <p>History</p></div>
+                        <img src="https://icon-library.com/images/history-icon/history-icon-0.jpg" alt="" className='MenuBarCardImage' />
+                        <p className='MenuBarCardText'>History</p></div>
                     <div className="MenuBarCard" onClick={NoticeOpen} >
-                        <img src="https://cdn-icons-png.flaticon.com/512/2985/2985052.png" alt="" className='MenuBarCardImage' />
-                        <p>Notice</p></div>
-                    <div className="MenuBarCard" onClick={SettingsOpen} >
-                        <img src="https://cdn-icons-png.flaticon.com/512/126/126472.png" alt="" className='MenuBarCardImage' />
-                        <p>Settings</p></div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/2798/2798102.png" alt="" className='MenuBarCardImage' />
+                        <p className='MenuBarCardText'>Notice</p></div>
+
 
 
                 </div>
 
             </div>
-            <div className='MenuDownContainer'>
-                <p>Copyright {dateYear}</p>
+            <div className="MenuDown">
+                <div className="MenuDownLine">
+
+                </div>
+                <div className='MenuDownContainer' onClick={TrashOpen}>
+                    <img className='MenuDownImg' src="https://cdn-icons-png.flaticon.com/512/2891/2891491.png" alt="" />
+                    <p className='MenuDownText'>Trash</p>
+
+                </div>
+
+
             </div>
+
 
         </div >
     )

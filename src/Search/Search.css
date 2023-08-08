@@ -8,15 +8,26 @@
 
 .Search input {
     width: 50%;
-    height: 45px;
-    border-radius: 10px;
-    background-color: #404756;
+    height: 40px;
+    border-radius: 5px;
+
     color: white;
     padding-left: 10px;
     font-size: 18px;
     letter-spacing: 2px;
+    border: 1px solid lightgrey;
+    color: black;
+    outline: none;
+    position: relative;
+    left: 20px;
+}
+
+.Search input:hover {
+    box-shadow: 0 0 10px #ccc;
+
 }
 
 .Search input::placeholder {
-    color: white;
+    color: black;
+
 }

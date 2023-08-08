@@ -4,13 +4,16 @@ import './NewNote.css';
 const NewNote = () => {
     return (
         <div className="NewNote">
+            <div className="NewNoteMenu">
+
+            </div>
             <div className="NewNoteContainer">
                 <textarea className="NewNotePaper" />
 
 
 
             </div>
-            <div className="NewNoteMenu">
+            {/* <div className="NewNoteMenu">
                 <div className="NewNoteMenuContainer">
                     <p>Add image</p>
                     <button className='NewNoteMenuAddImageBtn'>+</button>
@@ -106,7 +109,7 @@ const NewNote = () => {
 
 
 
-            </div>
+            </div> */}
 
 
 

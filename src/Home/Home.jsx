@@ -1,13 +1,10 @@
 
-
-import './History.css';
-
-const History = () => {
+import './Home.css';
+const Home = () => {
     return (
         <div className="Container">
-
 
         </div>
     )
 }
-export default History;
+export default Home;
