@@ -10,7 +10,7 @@ import Header from '../Header/Header';
 import Projects from '../Projects/Projects';
 import Home from '../Home/Home';
 import Trash from '../Trash/Trash';
-import Notification from '../Notification/Notification';
+
 
 
 
@@ -27,7 +27,11 @@ const Main = () => {
     const [notice, setNotice] = useState(false);
     const [settings, setSettings] = useState(false);
     const [trash, setTrash] = useState(false);
-    const [notification, setNotification] = useState(false)
+
+
+
+
+
 
 
 
@@ -42,14 +46,25 @@ const Main = () => {
 
 
 
+
+    }
+    const NewNoteClose = () => {
+        setNewNotes(false);
+        setOpenHeader(true)
+        setMenuOpen(true);
+        setOpenMainContainer(true);
+
+
+
     }
     const HomeOpen = () => {
         setHome(true);
         setProjects(false);
-        setHome(false)
+
         setHistory(false);
         setTrash(false)
         setNotice(false);
+
 
     }
     const ProjectsOpen = () => {
@@ -58,7 +73,8 @@ const Main = () => {
         setHistory(false);
         setNotice(false);
         setSettings(false)
-        setTrash(false)
+        setTrash(false);
+
 
     }
     const HistoryOpen = () => {
@@ -68,7 +84,8 @@ const Main = () => {
 
         setNotice(false);
         setSettings(false)
-        setTrash(false)
+        setTrash(false);
+
 
     }
     const NoticeOpen = () => {
@@ -77,7 +94,8 @@ const Main = () => {
         setHistory(false);
         setProjects(false);
         setSettings(false)
-        setTrash(false)
+        setTrash(false);
+
 
     }
 
@@ -87,7 +105,8 @@ const Main = () => {
         setNotice(false);
         setHistory(false);
         setProjects(false);
-        setTrash(false)
+        setTrash(false);
+
 
 
     }
@@ -98,18 +117,10 @@ const Main = () => {
         setNotice(false);
         setHistory(false);
         setProjects(false);
-    }
-
-    const NotificationOpen = () => {
-        setNotification(true);
-        setTrash(false);
-        setSettings(false);
-        setHome(false);
-        setNotice(false);
-        setHistory(false);
-        setProjects(false);
 
     }
+
+
 
     const RegistrationClose = () => {
         setOpenRegistration(false);
@@ -122,11 +133,15 @@ const Main = () => {
 
 
 
+
+
+
+
     return (
         <div className="Main">
             {
                 openHeader && (
-                    <Header NewNoteOpen={NewNoteOpen} SettingsOpen={SettingsOpen} NotificationOpen={NotificationOpen} />
+                    <Header NewNoteOpen={NewNoteOpen} SettingsOpen={SettingsOpen} />
 
                 )
             }
@@ -149,7 +164,7 @@ const Main = () => {
                         <div className="MainContainer">
                             {
                                 home && (
-                                    <Home />
+                                    <Home NewNoteOpen={NewNoteOpen} />
                                 )
                             }
                             {
@@ -181,12 +196,7 @@ const Main = () => {
                                     <Trash />
                                 )
                             }
-                            {
-                                notification && (
 
-                                    <Notification />
-                                )
-                            }
 
 
 
@@ -200,7 +210,7 @@ const Main = () => {
 
                 {
                     newNotes && (
-                        <NewNote />
+                        <NewNote NewNoteClose={NewNoteClose} />
 
                     )
                 }

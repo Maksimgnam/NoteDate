@@ -7,11 +7,6 @@ const Header = ({ NewNoteOpen, SettingsOpen, NotificationOpen }) => {
     return (
         <div className="Header">
             <div className="HeaderFirstPart">
-                <div className='HeaderMenu'>
-                    <div className="headerline"></div>
-                    <div className="headerline"></div>
-                    <div className="headerline"></div>
-                </div>
                 <Logo />
 
             </div>

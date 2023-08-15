@@ -1,0 +1,191 @@
+.HomeContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.HomeContainerMainTextCont {
+    width: 100%;
+    height: 10px;
+    font-size: 32px;
+    color: black;
+    font-weight: 600;
+    font-family: 'Borel', cursive;
+    display: flex;
+    align-items: center;
+
+}
+
+.HomeContainerMainTextCont p {
+    transform: rotate(-6deg);
+    position: relative;
+    top: 67px;
+
+}
+
+.HomeSliderContainer {
+    width: 78%;
+    height: 310px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: 77px;
+
+
+}
+
+.HomeSliderNavBtn {
+    width: 19%;
+    height: 90%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.NavBtnSecond {
+    justify-content: flex-start;
+}
+
+.HomeSliderNavBtn img {
+    width: 30px;
+    height: 30px;
+}
+
+.HomeSlideCardContainer {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.HomeSlideCard {
+    width: 82%;
+    height: 280px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+}
+
+.HomeSlideCardText {
+    font-size: 41px;
+    color: black;
+    font-family: 'Borel', cursive;
+    font-weight: 600;
+    position: relative;
+    left: -13px;
+    top: 13px;
+
+}
+
+
+.HomeSliderCardImage {
+    width: 140px;
+    height: 140px;
+    transform: rotate(15deg);
+    position: relative;
+    left: 6px;
+}
+
+
+.HomeLigaContainer {
+    width: 80%;
+    height: 200px;
+    position: relative;
+    top: 120px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.HomeLigaContainer p {
+    font-size: 63px;
+    color: lightgrey;
+    position: relative;
+    left: 13px;
+}
+
+.HomeLigaCard {
+    height: 100%;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+
+}
+
+.HomeLigaCard img {
+    width: 130px;
+    height: 50%;
+
+}
+
+.HomeLigaCard span {
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    font-family: 'Borel', cursive;
+    letter-spacing: 2px;
+    position: relative;
+    top: 20px;
+}
+
+
+.HomeFooter {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    top: 150px;
+
+
+}
+
+.HomeFooterText {
+    font-size: 21px;
+    color: black;
+    font-weight: 700;
+    font-family: 'Borel', cursive;
+    letter-spacing: 2px;
+    position: relative;
+    top: 5px;
+    left: -35px;
+
+}
+
+.HomeFooterBtn {
+    width: 50px;
+    height: 50px;
+    background-color: #A020F0;
+    border-radius: 50%;
+    color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 17px;
+    position: relative;
+    left: -15px;
+
+}
+
+span {
+    font-size: 35px;
+    position: relative;
+    top: 3px;
+}
