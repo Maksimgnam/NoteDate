@@ -10,6 +10,7 @@ import Header from '../Header/Header';
 import Projects from '../Projects/Projects';
 import Home from '../Home/Home';
 import Trash from '../Trash/Trash';
+import NewDraw from '../NewDraw/NewDraw';
 
 
 
@@ -21,6 +22,7 @@ const Main = () => {
     const [openRegistration, setOpenRegistration] = useState(true)
     const [openHeader, setOpenHeader] = useState(false);
     const [newNotes, setNewNotes] = useState(false);
+    const [newDraw, setNewDraw] = useState(false)
     const [home, setHome] = useState(true);
     const [projects, setProjects] = useState(false);
     const [history, setHistory] = useState(false);
@@ -40,12 +42,21 @@ const Main = () => {
 
     const NewNoteOpen = () => {
         setNewNotes(true);
+        setNewDraw(false)
         setOpenHeader(false)
         setMenuOpen(false);
         setOpenMainContainer(false);
 
 
 
+
+    }
+    const NewDrawOpen = () => {
+        setNewDraw(true)
+        setNewNotes(false);
+        setOpenHeader(false)
+        setMenuOpen(false);
+        setOpenMainContainer(false);
 
     }
     const NewNoteClose = () => {
@@ -141,7 +152,7 @@ const Main = () => {
         <div className="Main">
             {
                 openHeader && (
-                    <Header NewNoteOpen={NewNoteOpen} SettingsOpen={SettingsOpen} />
+                    <Header NewNoteOpen={NewNoteOpen} NewDrawOpen={NewDrawOpen} SettingsOpen={SettingsOpen} />
 
                 )
             }
@@ -213,6 +224,14 @@ const Main = () => {
                         <NewNote NewNoteClose={NewNoteClose} />
 
                     )
+                }
+                {
+                    newDraw && (
+                        <NewDraw />
+
+
+                    )
+
                 }
                 {
                     openRegistration && (

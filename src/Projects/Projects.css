@@ -1,0 +1,34 @@
+.ProjectHeader {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+}
+
+.ProjectHeaderMainText {
+    font-size: 26px;
+
+    font-weight: 500;
+    letter-spacing: 2px;
+    position: relative;
+    left: 20px;
+
+
+
+}
+
+.ProjectheaderText {
+    font-size: 26px;
+    font-weight: 600;
+    color: #A020F0;
+    position: relative;
+    left: -30px;
+}
+
+
+.ProjectContainer {
+    width: 100%;
+    height: 45%;
+}
