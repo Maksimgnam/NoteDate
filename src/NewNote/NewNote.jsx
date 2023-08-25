@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './NewNote.css';
 import color from './NewNoteImages/color.png';
 import { useEffect } from 'react';
+import MiniSettingsWindow from '../MiniSettingsWindow/MiniSettingsWindow';
 
 const NewNote = ({ NewNoteClose }) => {
 
@@ -361,6 +362,7 @@ const NewNote = ({ NewNoteClose }) => {
 
                 )
             }
+            <MiniSettingsWindow />
         </div >
     )
 }

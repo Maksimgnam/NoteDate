@@ -59,6 +59,13 @@ const Main = () => {
         setOpenMainContainer(false);
 
     }
+    const NewDrawClose = () => {
+        setNewDraw(false)
+        setOpenHeader(true)
+        setMenuOpen(true);
+        setOpenMainContainer(true);
+
+    }
     const NewNoteClose = () => {
         setNewNotes(false);
         setOpenHeader(true)
@@ -227,7 +234,7 @@ const Main = () => {
                 }
                 {
                     newDraw && (
-                        <NewDraw />
+                        <NewDraw NewDrawClose={NewDrawClose} />
 
 
                     )
