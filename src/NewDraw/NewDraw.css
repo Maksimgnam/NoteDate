@@ -14,7 +14,7 @@
 }
 
 .NewDrawMenuContainer {
-    width: 60%;
+    width: 63%;
     height: 43px;
     display: flex;
     justify-content: space-around;
@@ -82,7 +82,7 @@
     left: -1px;
 }
 
-.NewDrawAgainBtn {
+.NewDrawEraserBtn {
     width: 42px;
     height: 40px;
     display: flex;
@@ -92,13 +92,21 @@
 
 }
 
-.NewDrawAgainBtn:hover {
+.NewDrawEraserBtn:hover {
     background-color: rgba(111, 124, 139, 0.15);
 }
 
-.NewDrawAgainBtn img {
-    width: 27px;
-    height: 27px;
+.NewDrawEraserBtn img {
+    width: 23px;
+    height: 23px;
+}
+
+.EraserText {
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    position: relative;
+    left: -7px;
 }
 
 .NewDrawSizeContainer {

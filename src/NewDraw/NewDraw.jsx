@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { useRef } from 'react';
 
 
+
 import './NewDraw.css'
+import MiniSettingsWindow from '../MiniSettingsWindow/MiniSettingsWindow';
 const NewDraw = ({ NewDrawClose }) => {
     const aim = localStorage.getItem('aim')
     const image = localStorage.getItem('image');
@@ -13,6 +15,20 @@ const NewDraw = ({ NewDrawClose }) => {
     const [size, setSize] = useState(2);
     const [background, setBackground] = useState('white');
     const [color, setColor] = useState('black');
+    const [eraserMode, setEraserMode] = useState(false);
+    const [show, setShow] = useState(false);
+
+    const Show = () => {
+        setShow(!show)
+    }
+
+
+
+
+
+
+
+
 
 
 
@@ -40,12 +56,29 @@ const NewDraw = ({ NewDrawClose }) => {
         if (!isDrawing) return;
 
 
+        if (eraserMode) {
+            context.globalCompositeOperation = 'destination-out'; // Eraser mode
+        } else {
+            context.globalCompositeOperation = 'source-over'; // Drawing mode
+        }
+
+
 
         const { offsetX, offsetY } = event.nativeEvent;
         context.lineTo(offsetX, offsetY);
         context.stroke();
 
 
+
+
+    };
+
+    const toggleEraser = () => {
+        setEraserMode(!eraserMode);
+        setColor(eraserMode ? 'black' : background);
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        ctx.beginPath();
     };
 
     const stopDrawing = () => {
@@ -60,6 +93,12 @@ const NewDraw = ({ NewDrawClose }) => {
     }
     const ColorChange = (e) => {
         setColor(e.target.value)
+    }
+    const ChangeColor = (newColor) => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        setColor(newColor);
+        ctx.beginPath()
     }
     const SwitchWhite = () => {
         setBackground('white');
@@ -82,6 +121,16 @@ const NewDraw = ({ NewDrawClose }) => {
         { colorLine: 'blue' }
 
     ]
+    const clearCanvas = () => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath()
+
+        // Clear the entire 
+
+    };
 
 
 
@@ -99,13 +148,15 @@ const NewDraw = ({ NewDrawClose }) => {
 
 
 
-                    <div className="NewDrawClearBtn" >
+                    <div className="NewDrawClearBtn" onClick={clearCanvas}>
                         <img src="https://static.thenounproject.com/png/5507757-200.png" alt="" />
                     </div>
-                    <div className="NewDrawAgainBtn">
-                        <img src="https://cdn2.iconfinder.com/data/icons/video-player-interface/100/video_player-15-512.png" alt="" />
+                    <div className="NewDrawEraserBtn" onClick={toggleEraser} >
+
+                        <img src="https://cdn-icons-png.flaticon.com/512/1827/1827954.png" alt="" />
 
                     </div>
+                    <p className='EraserText'>   {eraserMode ? 'on' : 'off'}</p>
                     <div className="NewDrawSizeContainer">
 
 
@@ -131,7 +182,7 @@ const NewDraw = ({ NewDrawClose }) => {
                             ColorText.map((item, index) => (
 
 
-                                <div className="NewDrawColorBtn" key={index} style={{ backgroundColor: item.colorLine }} ></div>
+                                <div className="NewDrawColorBtn" key={index} style={{ backgroundColor: item.colorLine }} onClick={() => ChangeColor(item.colorLine)} ></div>
                             )
                             )
                         }
@@ -144,7 +195,7 @@ const NewDraw = ({ NewDrawClose }) => {
                         <img src="https://cdn.icon-icons.com/icons2/2468/PNG/512/user_icon_149329.png" alt="" />
                     </div>
 
-                    <img src={image} className="NewDrawMenuAccountImage" />
+                    <img src={image} className="NewDrawMenuAccountImage" onClick={Show} />
 
 
 
@@ -168,6 +219,13 @@ const NewDraw = ({ NewDrawClose }) => {
 
 
             </div>
+            {
+                show && (
+                    <MiniSettingsWindow />
+
+                )
+            }
+
 
 
 

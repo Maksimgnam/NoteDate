@@ -1,7 +1,7 @@
 
 import './Menu.css';
 
-const Menu = ({ ProjectsOpen, HistoryOpen, NoticeOpen, HomeOpen, TrashOpen }) => {
+const Menu = ({ HomeOpen, SettingsOpen }) => {
 
     const image = localStorage.getItem('image');
     const name = localStorage.getItem('name');
@@ -38,22 +38,17 @@ const Menu = ({ ProjectsOpen, HistoryOpen, NoticeOpen, HomeOpen, TrashOpen }) =>
                         <img src="https://icon-library.com/images/home-icon-png-transparent/home-icon-png-transparent-15.jpg" alt="" className='MenuBarCardImage HomeImage' />
                         <p className='MenuBarCardText HomeText'>Home</p></div>
 
-                    <div className="MenuBarCard" onClick={ProjectsOpen} >
-                        <img src="https://d1k5j68ob7clqb.cloudfront.net/processed/thumb/42mCH48I6l1R0bpSgl.png" alt="" className='MenuBarCardImage ' />
-                        <p className='MenuBarCardText'>Projects</p></div>
-                    <div className="MenuBarCard" onClick={HistoryOpen}>
-                        <img src="https://icon-library.com/images/history-icon/history-icon-0.jpg" alt="" className='MenuBarCardImage' />
-                        <p className='MenuBarCardText'>History</p></div>
-                    <div className="MenuBarCard" onClick={NoticeOpen} >
-                        <img src="https://cdn-icons-png.flaticon.com/512/2798/2798102.png" alt="" className='MenuBarCardImage' />
-                        <p className='MenuBarCardText'>Notice</p></div>
+                    <div className="MenuBarCard" onClick={SettingsOpen} >
+                        <img src="https://cdn-icons-png.flaticon.com/512/126/126472.png" alt="" className='MenuBarCardImage ' />
+                        <p className='MenuBarCardText'>Settings</p></div>
+
 
 
 
                 </div>
 
             </div>
-            <div className="MenuDown">
+            {/* <div className="MenuDown">
                 <div className="MenuDownLine">
 
                 </div>
@@ -64,7 +59,7 @@ const Menu = ({ ProjectsOpen, HistoryOpen, NoticeOpen, HomeOpen, TrashOpen }) =>
                 </div>
 
 
-            </div>
+            </div> */}
 
 
         </div >

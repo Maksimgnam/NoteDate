@@ -83,8 +83,7 @@ const Settings = () => {
                                 <span className='SettingsNameText'>Name</span>
                                 <div className="SettingsNameChangeContainer">
                                     <input type="text" value={name} className='SettingsNameChangeInput' />
-                                    <input type="text" className='SettingsNameChangeInput' placeholder='Last name' />
-                                    <button className='SettingsNameChangeBtn'>Save</button>
+
                                 </div>
 
 

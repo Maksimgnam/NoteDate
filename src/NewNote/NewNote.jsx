@@ -5,7 +5,7 @@ import color from './NewNoteImages/color.png';
 import { useEffect } from 'react';
 import MiniSettingsWindow from '../MiniSettingsWindow/MiniSettingsWindow';
 
-const NewNote = ({ NewNoteClose }) => {
+const NewNote = ({ NewNoteClose, SettingsOpen }) => {
 
     const [colorMenuOpen, setColorMenuOpen] = useState(false);
     const aim = localStorage.getItem('aim');
@@ -16,7 +16,13 @@ const NewNote = ({ NewNoteClose }) => {
     const [context, setContext] = useState('');
 
     const [selectColor, setSelectColor] = useState('black');
-    const [selectFont, setSelectFont] = useState('Arial')
+    const [selectFont, setSelectFont] = useState('Arial');
+    const [show, setShow] = useState(false);
+
+
+    const Show = () => {
+        setShow(!show)
+    }
 
     const fontOptions = [
         'Arial',
@@ -77,32 +83,7 @@ const NewNote = ({ NewNoteClose }) => {
 
 
 
-    // const [selectImage, setSelectImage] = useState(null);
-    // const [imagePosition, setImagePosition] = useState({ x: 430, y: 130 });
-    // const [dragg, setDragg] = useState(false);
 
-    // const ChangeImage = (e) => {
-    //     const selectedFile = e.target.files[0];
-    //     if (selectedFile) {
-    //         const imageUrl = URL.createObjectURL(selectedFile);
-    //         setSelectImage(imageUrl);
-    //     }
-
-    // }
-
-    // const DragStart = () => {
-    //     setDragg(true)
-    // }
-    // const DragImages = (event) => {
-    //     if (dragg) {
-    //         const newX = imagePosition.x + event.movementX;
-    //         const newY = imagePosition.y + event.movementY;
-    //         setImagePosition({ x: newX, y: newY });
-    //     }
-    // };
-    // const DragEnd = () => {
-    //     setDragg(false);
-    // }
 
 
 
@@ -188,6 +169,10 @@ const NewNote = ({ NewNoteClose }) => {
         fontWeight: bold
     };
 
+    const TextChangeColor = (e) => {
+        setSelectColor(e.target.value)
+    }
+
 
     const TextColorChange = (newColor) => {
         setSelectColor(newColor)
@@ -204,11 +189,49 @@ const NewNote = ({ NewNoteClose }) => {
         setSelectFont(e.target.value)
     }
 
+    const Save = () => {
+        const noteParameters = {
+            bold,
+            background,
+            selectColor,
+
+        };
+        localStorage.setItem('noteParameters', JSON.stringify(noteParameters));
+        localStorage.setItem('noteText', context);
+        NewNoteClose()
+    };
+
+
+    useEffect(() => {
+        // Only load saved parameters from localStorage on component mount
+        const storedParameters = localStorage.getItem('noteParameters');
+        if (storedParameters) {
+            const parsedParameters = JSON.parse(storedParameters);
+            setBold(parsedParameters.bold);
+            setBackground(parsedParameters.background);
+            setSelectColor(parsedParameters.selectColor);
+            // Set the context from parsedParameters
+
+        }
+
+
+
+    }, [])
+    useEffect(() => {
+        const storedText = localStorage.getItem('noteText');
+        if (storedText) {
+            setContext(storedText);
+        }
+    }, []);
+
+
+
+
     return (
         <div className="NewNote">
             <div className="NewNoteMenu">
 
-                <button className="NewNoteMenuBackBtn" onClick={NewNoteClose}>
+                <button className="NewNoteMenuBackBtn" onClick={Save}>
                     <img className='NewNoteMenuBackBtnBtnImg' src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowiosback_111116.png" alt="" />
                     <img className='NewNoteMenuBackBtnBtnImg SecondBtnImage' src="https://cdn.icon-icons.com/icons2/1674/PNG/512/arrowiosback_111116.png" alt="" />
                     <p>Back</p>
@@ -256,7 +279,7 @@ const NewNote = ({ NewNoteClose }) => {
                     <div className="NewNoteMenuTextColorContainer">
                         <img className='NewNoteMenuBackgroundColorImage' src="https://static.thenounproject.com/png/5498149-200.png" alt="" />
                         <div className="NewNoteMenuTextColorInput">
-                            <input type="color" />
+                            <input type="color" value={selectColor} onChange={TextChangeColor} />
                         </div>
                         <div className="NewNoteMenuTextColorBtnContainer">
                             {
@@ -264,10 +287,7 @@ const NewNote = ({ NewNoteClose }) => {
                                     <button className='NewNoteMenuColorBtn' key={index} style={{ backgroundColor: item.textColor, }} onClick={() => TextColorChange(item.textColor)}></button>
                                 ))
                             }
-                            {/* <div className="NewNoteMenuColorBtn"></div>
-                            <div className="NewNoteMenuColorBtn BlackBtn"></div>
-                            <div className="NewNoteMenuColorBtn RedBtn"></div>
-                            <div className="NewNoteMenuColorBtn GreenBtn"></div> */}
+
                         </div>
                         <div className="NewNoteMenuMoreColor" onClick={OpenColorMenu}>
                             <img src="https://www.freeiconspng.com/thumbs/color-icons/colors-icon-4.png" alt="" />
@@ -283,7 +303,7 @@ const NewNote = ({ NewNoteClose }) => {
 
                     </div>
 
-                    <img className='NewNoteMenuAccountAimImage' src={image} alt="" />
+                    <img className='NewNoteMenuAccountAimImage' src={image} alt="" onClick={Show} />
 
 
                 </div>
@@ -295,6 +315,9 @@ const NewNote = ({ NewNoteClose }) => {
                     style={blockStyle}
                     className='NewNotePaper'
                     contentEditable={true}
+                    value={context}
+
+                    onChange={(e) => setContext(e.target.value)}
                 // onMouseDown={DragStart}
                 // onMouseMove={DragImages}
                 // onMouseUp={DragEnd}
@@ -333,7 +356,7 @@ const NewNote = ({ NewNoteClose }) => {
                             <p className='NewNoteMenuTextColorMenuHeaderText'>Text Color</p>
                         </div>
                         <div className="NewNoteMenuTextColorMenuInputCont">
-                            <input type="color" />
+                            <input type="color" value={selectColor} onChange={TextChangeColor} />
 
                         </div>
                         <div className="NewNoteMenuTextColorMenuColorLine">
@@ -362,7 +385,13 @@ const NewNote = ({ NewNoteClose }) => {
 
                 )
             }
-            <MiniSettingsWindow />
+            {
+                show && (
+                    <MiniSettingsWindow SettingsOpen={SettingsOpen} />
+
+                )
+            }
+
         </div >
     )
 }

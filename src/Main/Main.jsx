@@ -1,15 +1,11 @@
 import Menu from '../Menu/Menu';
-import Notice from '../Notice/Notice';
-import History from '../History/History';
 import Settings from '../Settings/Settings';
 import './Main.css';
 import { useState } from 'react';
 import NewNote from '../NewNote/NewNote';
 import Registration from '../Registration/Registration';
 import Header from '../Header/Header';
-import Projects from '../Projects/Projects';
 import Home from '../Home/Home';
-import Trash from '../Trash/Trash';
 import NewDraw from '../NewDraw/NewDraw';
 
 
@@ -24,11 +20,8 @@ const Main = () => {
     const [newNotes, setNewNotes] = useState(false);
     const [newDraw, setNewDraw] = useState(false)
     const [home, setHome] = useState(true);
-    const [projects, setProjects] = useState(false);
-    const [history, setHistory] = useState(false);
-    const [notice, setNotice] = useState(false);
     const [settings, setSettings] = useState(false);
-    const [trash, setTrash] = useState(false);
+
 
 
 
@@ -46,6 +39,7 @@ const Main = () => {
         setOpenHeader(false)
         setMenuOpen(false);
         setOpenMainContainer(false);
+
 
 
 
@@ -77,66 +71,34 @@ const Main = () => {
     }
     const HomeOpen = () => {
         setHome(true);
-        setProjects(false);
-
-        setHistory(false);
-        setTrash(false)
-        setNotice(false);
-
-
-    }
-    const ProjectsOpen = () => {
-        setProjects(true);
-        setHome(false)
-        setHistory(false);
-        setNotice(false);
         setSettings(false)
-        setTrash(false);
 
 
     }
-    const HistoryOpen = () => {
-        setHistory(true);
-        setHome(false)
-        setProjects(false);
-
-        setNotice(false);
-        setSettings(false)
-        setTrash(false);
 
 
-    }
-    const NoticeOpen = () => {
-        setNotice(true);
-        setHome(false)
-        setHistory(false);
-        setProjects(false);
-        setSettings(false)
-        setTrash(false);
 
-
-    }
 
     const SettingsOpen = () => {
         setSettings(true);
         setHome(false);
-        setNotice(false);
-        setHistory(false);
-        setProjects(false);
-        setTrash(false);
+
+
+        setOpenMainContainer(true)
+        setNewNotes(false)
+        setNewDraw(false);
+        setOpenHeader(true)
+        setMenuOpen(true)
+
+
 
 
 
     }
-    const TrashOpen = () => {
-        setTrash(true);
-        setSettings(false);
-        setHome(false);
-        setNotice(false);
-        setHistory(false);
-        setProjects(false);
 
-    }
+
+
+
 
 
 
@@ -171,7 +133,7 @@ const Main = () => {
 
                 {
                     menuOpen && (
-                        <Menu HomeOpen={HomeOpen} ProjectsOpen={ProjectsOpen} HistoryOpen={HistoryOpen} NoticeOpen={NoticeOpen} TrashOpen={TrashOpen} />
+                        <Menu HomeOpen={HomeOpen} SettingsOpen={SettingsOpen} />
 
                     )
                 }
@@ -185,35 +147,14 @@ const Main = () => {
                                     <Home NewNoteOpen={NewNoteOpen} />
                                 )
                             }
-                            {
-                                projects && (
-                                    <Projects />
 
-                                )
-                            }
-                            {
-                                history && (
-                                    <History />
-
-                                )
-                            }
-                            {
-                                notice && (
-                                    <Notice />
-
-                                )
-                            }
                             {
                                 settings && (
                                     <Settings />
 
                                 )
                             }
-                            {
-                                trash && (
-                                    <Trash />
-                                )
-                            }
+
 
 
 
@@ -228,7 +169,7 @@ const Main = () => {
 
                 {
                     newNotes && (
-                        <NewNote NewNoteClose={NewNoteClose} />
+                        <NewNote NewNoteClose={NewNoteClose} SettingsOpen={SettingsOpen} />
 
                     )
                 }

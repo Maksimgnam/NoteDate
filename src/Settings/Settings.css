@@ -82,7 +82,7 @@
 
 .SettingsAccountContainer {
     width: 90%;
-    height: 960px;
+    height: 870px;
 
     position: relative;
     top: 40px;
@@ -149,7 +149,7 @@
 
 .SettingsNameContainer {
     width: 70%;
-    height: 200px;
+    height: 100px;
     display: flex;
 
     flex-direction: column;
@@ -185,6 +185,7 @@
     font-size: 16px;
     letter-spacing: 2px;
     padding-left: 10px;
+    outline: none;
 
 }
 
@@ -247,6 +248,7 @@
     border-radius: 10px;
     width: 70%;
     padding-left: 10px;
+    outline: none;
     background-color: white;
     border: 2px solid lightgray;
     font-size: 17px;
